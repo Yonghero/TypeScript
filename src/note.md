@@ -1,7 +1,5 @@
-# ts中的模块化
-· ts中使用ES6标准 编译结果也配置为ES6标准 那不会出现任何问题
-· ts中使用ES6标准 编译结果配置为commonjs标准 编译后的文件采用的方式是声明了一个exports对象 将ts中使用ES6导出的模块 生成为exports中的一个属性 会出现的问题是ES6的默认导出 会生成为exports.default这个属性 例如node中fs模块是用commonjs标准写的 编译结果为 exports.default.fs 那必定是错误的 解决办法有 
-import * as fs from 'fs' 
-import {readFileSync} from 'fs'
-但是！在tsconifg中也是可以配置的 `esModuleInterop`
+# interface : 用户约束类、对象、函数的一个契约（接口）
+## 接口的理解： 前端开发中遇到新技术、或者忘记了某些功能，我们都会去找相应的官方接口文档查询 、 日常生活中比如type-c接口、usb接口，这些广泛的定义其实就是一个标准
 
++ interface 可以继承 *子接口不能覆盖父接口的成员*
+  `interface a { t : number }  interface b extends { t1 : string} let val:b = {t:1,t1:"1"}`

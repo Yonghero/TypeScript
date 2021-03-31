@@ -1,11 +1,15 @@
+interface condition {  // 此接口约束了一个函数 参数必须为number 返回值必须为boolean
+    (n: number): boolean
+}
 
-/**枚举特点 
- * 用户描述一个取值范围
- * 不混淆逻辑含义与真实值
- * 编译后为js对象可以可动态读取而定义别名则无法动态读取
- */
+function sum(nums: number[], callback: condition): number {
+    let val = 0
+    nums.forEach(n => {
+        if (callback(n)) {
+            val += n
+        }
+    })
+    return val
+}
 
-import { printPoker, createPoker } from "./funcs";
-
-
-printPoker(createPoker())
+console.log(sum([1, 2, 3, 4, 5], n => (n % 2 === 0)));

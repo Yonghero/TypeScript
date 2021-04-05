@@ -1,19 +1,40 @@
 import { Mark, Color } from "./enums"
-import { Deck } from "./types"
+import { Card, Deck } from "./interfaces"
 
 export function createPoker(): Deck {
-    const deck: Deck = []
+    let deck: Deck = []
     Object.values(Mark).forEach(mark => {
         Object.values(Color).forEach(color => {
-            deck.push({ color, mark })
+            const card = {
+                getString() {
+                    return mark + color
+                },
+                color: color,
+                mark: mark
+            }
+            deck.push(card)
         })
     })
+    // 断言
+    deck.push(<Card>{
+        type: 'small',
+        getString() {
+            return 'jo'
+        }
+    })
+
+    deck.push({
+        type: 'big',
+        getString() {
+            return 'JO'
+        }
+    } as Card)
     return deck
 }
 
 export function printPoker(deck: Deck) {
     deck.forEach((deck) => {
-        let str = deck.color + deck.mark
-        console.log(str);
+        console.log(deck.getString());
+        
     })
 }

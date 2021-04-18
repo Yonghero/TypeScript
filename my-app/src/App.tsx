@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import CountComp from './components/CountComp'
-
+import GameCom from './components/GameCom/GameCom';
 function App() {
-
-  const [num, setNum] = useState(10)
 
   return (
     <div className="App">
-      <CountComp num={num} onChange={setNum}/>
+      <GameCom/>
     </div>
   );
 }

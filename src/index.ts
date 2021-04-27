@@ -1,29 +1,31 @@
-interface IFunc { // 接口表示类成员可能会拥有的能力
-    dance(): void
-}
+import { Square } from "./core/square";
+import { IViewer } from "./core/types";
 
-abstract class Animal { // 抽象类表示某些类的共同的抽象性质属性
-    public abstract name: string
-    public abstract sayHello(): void
-}
+class SquareViewr implements IViewer {
 
-class Dog extends Animal implements IFunc {
-
-    [name: string]: any // 索引器的类型检查 （动态添加类的实例成员时的一种约束）
-
-    public name: string = 'Dog'
-
-    static readonly type = 'dog' // 静态属性 只属于该类 并不属于类的对象
-
-    sayHello() {
+    constructor(private square: Square) {
 
     }
-    dance() {
+
+    show(): void {
+        console.log(this.square.point, this.square.color);
+
 
     }
+    remove(): void {
+        throw new Error("Method not implemented.");
+    }
+
+
 }
-
-const dog = new Dog()
-dog['a'] = 1
-
-console.log(Dog.type)
+const sq = new Square({ x: 0, y: 0 }, 'red')
+sq.viewer = new SquareViewr(sq)
+sq.viewer.show()
+sq.point = {
+    x: 1,
+    y: 1
+}
+sq.point = {
+    x: 2,
+    y: 3
+}

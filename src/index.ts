@@ -1,49 +1,29 @@
-type Deck = Poker[]
-type Color = '♥' | '♦️' | '♣️' | '♠️'
-type Poker = {
-    color: Color
-    mark: number
+interface IFunc { // 接口表示类成员可能会拥有的能力
+    dance(): void
 }
 
-function createPoker(): Deck {
-    const deck: Deck = []
-    for (let i = 1; i <= 13; i++) {
-        deck.push({
-            color: '♠️',
-            mark: i
-        })
-        deck.push({
-            color: '♣️',
-            mark: i
-        })
-        deck.push({
-            color: '♥',
-            mark: i
-        })
-        deck.push({
-            color: '♦️',
-            mark: i
-        })
+abstract class Animal { // 抽象类表示某些类的共同的抽象性质属性
+    public abstract name: string
+    public abstract sayHello(): void
+}
+
+class Dog extends Animal implements IFunc {
+
+    [name: string]: any // 索引器的类型检查 （动态添加类的实例成员时的一种约束）
+
+    public name: string = 'Dog'
+
+    static readonly type = 'dog' // 静态属性 只属于该类 并不属于类的对象
+
+    sayHello() {
+
     }
-    return deck
+    dance() {
+
+    }
 }
 
-function printPoker(deck: Deck) {
-    deck.forEach((p, i) => {
-        let str = p.color
-        if (p.mark <= 10) {
-            str += p.mark
-        }
-        else if (p.mark === 11) {
-            str += 'j'
-        }
-        else if (p.mark === 12) {
-            str += 'Q'
-        }
-        else{
-            str += 'k'
-        }
-        console.log(str);
-    })
-}
-printPoker(createPoker())
+const dog = new Dog()
+dog['a'] = 1
+
+console.log(Dog.type)

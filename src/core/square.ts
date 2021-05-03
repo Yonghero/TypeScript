@@ -9,9 +9,12 @@ export class Square {
 
     public set viewer(v: IViewer) {
         this._viewer = v
+        if (v) {
+            this.viewer.show()
+        }
     }
 
-    public get viewer(){
+    public get viewer() {
         return this._viewer as IViewer
     }
 
@@ -30,5 +33,8 @@ export class Square {
         }
     }
 
+    remove(){
+        this._viewer?.remove()
+    }
 
 }

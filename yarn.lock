@@ -36,6 +36,13 @@
   resolved "https://registry.npm.taobao.org/@types/html-minifier-terser/download/@types/html-minifier-terser-5.1.1.tgz#3c9ee980f1a10d6021ae6632ca3e79ca2ec4fb50"
   integrity sha1-PJ7pgPGhDWAhrmYyyj55yi7E+1A=
 
+"@types/jquery@^3.5.5":
+  version "3.5.5"
+  resolved "https://registry.nlark.com/@types/jquery/download/@types/jquery-3.5.5.tgz#2c63f47c9c8d96693d272f5453602afd8338c903"
+  integrity sha1-LGP0fJyNlmk9Jy9UU2Aq/YM4yQM=
+  dependencies:
+    "@types/sizzle" "*"
+
 "@types/json-schema@*", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.7.tgz?cache=0&sync_timestamp=1613378919536&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjson-schema%2Fdownload%2F%40types%2Fjson-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
@@ -50,6 +57,11 @@
   version "15.0.0"
   resolved "https://registry.nlark.com/@types/node/download/@types/node-15.0.0.tgz#557dd0da4a6dca1407481df3bbacae0cd6f68042"
   integrity sha1-VX3Q2kptyhQHSB3zu6yuDNb2gEI=
+
+"@types/sizzle@*":
+  version "2.3.3"
+  resolved "https://registry.nlark.com/@types/sizzle/download/@types/sizzle-2.3.3.tgz?cache=0&sync_timestamp=1619526769108&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fsizzle%2Fdownload%2F%40types%2Fsizzle-2.3.3.tgz#ff5e2f1902969d305225a047c8a0fd5c915cebef"
+  integrity sha1-/14vGQKWnTBSJaBHyKD9XJFc6+8=
 
 "@webassemblyjs/ast@1.11.0":
   version "1.11.0"
@@ -1795,6 +1807,11 @@ jest-worker@^26.6.2:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
+
+jquery@^3.6.0:
+  version "3.6.0"
+  resolved "https://registry.nlark.com/jquery/download/jquery-3.6.0.tgz#c72a09f15c1bdce142f49dbf1170bdf8adac2470"
+  integrity sha1-xyoJ8Vwb3OFC9J2/EXC9+K2sJHA=
 
 json-parse-better-errors@^1.0.2:
   version "1.0.2"

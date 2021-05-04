@@ -1,46 +1,48 @@
-type Deck = Poker[]
-enum Color {
-    Spade = '♠️',
-    Heart = '♥',
-    Diamond = '♦️',
-    Club = '♣️'
-}
-enum Mark {
-    A = 'A',
-    J = 'J',
-    Q = 'Q',
-    one = '1',
-    two = '2',
-    three = '3',
-    four = '4',
-    five = '5',
-    six = '6',
-    sevent = '7',
-    eight = '8',
-    nine = '9',
-    ten = '10'
+// 类装饰器
+type construcor = new (...args: any[]) => object
+function d1(des: string) {
+    return function (target: construcor) {
+        new target()
+        console.log(des);
+
+    }
 
 }
-// type Color = '♥' | '♦️' | '♣️' | '♠️'
-type Poker = {
-    color: Color
-    mark: Mark
+
+
+@d1('这是一个类')
+class A {
+    constructor() {
+        console.log('I am A');
+    }
 }
 
-function createPoker(): Deck {
-    const deck: Deck = []
-    Object.values(Mark).forEach(mark => {
-        Object.values(Color).forEach(color => {
-            deck.push({ color, mark })
-        })
-    })
-    return deck
+// 成员装饰器
+
+function des(target:any, key:string){
+    console.log(target,key);
+    
 }
 
-function printPoker(deck: Deck) {
-    deck.forEach((deck) => {
-        let str = deck.color + deck.mark
-        console.log(str);
-    })
+
+function enumerable(target:any, key:string, des:object){
+    console.log(target,key,des);
+    (des as any).enumerable = true
 }
-printPoker(createPoker())
+
+class B{
+    @des
+    prop1:string;
+
+
+    @enumerable
+    method(){
+
+    }
+}
+
+const b = new B()
+for (const key in b) {
+    console.log(key);
+}
+

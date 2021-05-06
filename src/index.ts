@@ -1,50 +1,39 @@
-import './practice'
+import { type } from "os"
 
-// 类装饰器
-type construcor = new (...args: any[]) => object
-function d1(des: string) {
-    return function (target: construcor) {
-        new target()
-        // console.log(des);
+// typeof
+class User {
+    name: string
+    age: number
+    address: string
+}
+function createUser(cls: typeof User): User {
+    return new cls()
+}
 
-    }
+const user = createUser(User)
+user.name = 'bbj'
 
+const u: typeof user = {
+    name: 'bbu'
 }
 
 
-@d1('这是一个类')
-class A {
-    constructor() {
-        // console.log('I am A');
-    }
+// keyof
+
+interface t1 {
+    prop: string
 }
 
-// 成员装饰器
+type t2 = User
 
-function des(target:any, key:string){
-    // console.log(target,key);
-    
+
+function getSomething(str: keyof t1 | keyof t2 | keyof User) {
+    console.log(str);
 }
 
 
-function enumerable(target:any, key:string, des:object){
-    // console.log(target,key,des);
-    (des as any).enumerable = true
+// in
+// 通过已知的类型演算出一个新的类型
+type readonly<T> = {
+    readonly [p in keyof T]: T[p]
 }
-
-class B{
-    @des
-    prop1:string;
-
-
-    @enumerable
-    method(){
-
-    }
-}
-
-// const b = new B()
-// for (const key in b) {
-//     console.log(key);
-// }
-

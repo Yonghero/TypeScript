@@ -10,3 +10,16 @@
 ---------
 1. __in__
 - 通常和keyof连用 限制索引器的取值范围
+  
+## TS中预设的类型演算
+  *从别的类型中推算出新的类型 也是类型约束的一种*
+  ```ts
+  Parital<T>
+  Required<T>
+  Readonly<T>
+  Exclude<T,U>
+  Extract<T,U>
+  NonNullable<T>
+  ReturnType<T>
+  InstanceType<T>
+  ```
